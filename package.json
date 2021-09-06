@@ -1,0 +1,23 @@
+{
+  "name": "image-grabber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "image-downloader": "^4.0.3",
+    "lodash": "^4.17.21",
+    "puppeteer": "^10.2.0",
+    "puppeteer-extra-plugin-stealth": "^2.7.8",
+    "query-string": "^7.0.1"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
+  }
+}
