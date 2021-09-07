@@ -11,8 +11,8 @@ async function run() {
   const failed = {};
 
   for (let person of persons) {
-    await grabImages(person.english, person.english, 10);
-    await grabImages(person.english, person.persian, 5);
+    await grabImages(person.english, person.english, 100);
+    await grabImages(person.english, person.persian, 20);
   }
 
   googleImage.closeBrowser();

@@ -28,15 +28,24 @@ async function GoogleImageSearch() {
 
   async function scrollTill(count) {
     let shouldStop = false;
+    let before = null;
 
     while (!shouldStop) {
-      shouldStop = await page.evaluate((count) => {
-        if (document.querySelectorAll("a[data-nav='1']").length < count) {
-          window.scrollTo(0, document.body.scrollHeight);
-          return false;
-        }
-        return true;
-      }, count);
+      let { result, c } = await page.evaluate(
+        ({ count, before }) => {
+          let current = document.querySelectorAll("a[data-nav='1']").length;
+          if (current < count && before !== current) {
+            window.scrollTo(0, document.body.scrollHeight);
+            before = current;
+            return { result: false, c: before };
+          }
+          return { result: true, c: before };
+        },
+        { count, before }
+      );
+
+      shouldStop = result;
+      before = c;
     }
   }
 

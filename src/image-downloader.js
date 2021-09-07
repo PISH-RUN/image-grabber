@@ -16,7 +16,7 @@ async function imageDownloader(urls, keyword) {
         url,
         dest: getFilename(url, dest),
         extractFilename: false,
-        timeout: 25000,
+        timeout: 5000,
       });
       console.log(`download ended successfully`);
     } catch (e) {
